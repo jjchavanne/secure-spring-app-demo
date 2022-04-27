@@ -16,7 +16,7 @@ RUN groupadd --gid $USER_GID $USERNAME \
 USER $USERNAME
 WORKDIR /app
 COPY app /app
-RUN su mvn -c clean package
+RUN su $USERNAME mvn clean package
 
 FROM tomcat:10-jdk11-openjdk-slim
 USER $USERNAME
